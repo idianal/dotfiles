@@ -1,0 +1,90 @@
+# .bashrc - Runs when an interactive shell is invoked
+
+# By default .bashrc runs only when a non-login, interactive shell is invoked.
+# However, this .bashrc is also run by .bash_profile.
+
+
+# - PATH -
+
+if [[ -d "$HOME/bin" ]]; then
+    export PATH="$HOME/bin:$PATH"
+fi
+
+# Only for Homebrew on Apple Silicon
+if [[ -x "/opt/homebrew/bin/brew" ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+
+# - Quick Exit -
+
+# If not running interactively, don't do anything further
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+
+# - General Settings -
+
+shopt -s autocd
+shopt -s cdspell
+shopt -s checkwinsize
+shopt -s histappend
+
+
+# - Exports -
+
+export EDITOR="vim"
+
+# Required to sign Git commits using GPG
+export GPG_TTY=$(tty)
+
+# Don't put duplicate lines or lines starting with space in the history
+export HISTCONTROL="ignoreboth"
+
+export HISTSIZE="1000"
+export HISTFILESIZE="2000"
+
+
+# - Prompt -
+
+# Styles
+reset="\e[0m"
+blue="\e[1;34m"
+green="\e[1;32m"
+
+unset PS1
+
+# username@hostname
+PS1+="\[${green}\]\u@\h "
+
+# Working directory
+PS1+="\[${blue}\]\w "
+
+# '$'
+PS1+="\[${reset}\]\$ "
+
+
+# - Aliases -
+
+if [[ -f ~/.bash_aliases ]]; then
+    . ~/.bash_aliases
+fi
+
+
+# - Functions -
+
+# Create a new directory (recursively if necessary) and enter it
+function mcd() {
+    mkdir -p "$@" && cd "$_"
+}
+
+
+# - Plugins -
+
+# bash-completion
+
+# If script exists and is readable, source it
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] &&
+    . "/usr/local/etc/profile.d/bash_completion.sh"

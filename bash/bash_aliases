@@ -1,0 +1,22 @@
+# .bash_aliases - Sets up all bash aliases
+
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+# Linux and macOS have 'ls' commands with slightly different flags.
+# Detect which variant we have and use the correct flags.
+if ls --color &>/dev/null; then
+    # Linux
+    colorFlag="--color=auto"
+else
+    # macOS
+    colorFlag="-G"
+fi
+
+alias ls="ls -F $colorFlag"
+alias la="ls -aF $colorFlag"
+alias ll="ls -alF $colorFlag"
+
+alias grep="grep --color=auto"
+alias docker="sudo docker"
+alias docker-compose="sudo docker-compose"

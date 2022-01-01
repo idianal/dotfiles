@@ -1,0 +1,100 @@
+" .vimrc - Customizations to run at the start of each Vim instance
+
+" - General -
+
+" Make Vim more useful by foregoing compatibility with Vi
+set nocompatible
+
+" Disable audible bell
+set noerrorbells
+
+" Disable backups, swap files, and undo files
+set nobackup
+set noundofile
+set noswapfile
+
+" Enable plugins
+filetype plugin on
+
+
+" - Appearance -
+
+" Apply syntax highlighting
+syntax on
+colorscheme peachpuff
+
+" Show line numbers
+set number
+set relativenumber
+
+" Wrap long lines to fit the display
+set linebreak
+
+" Always show the status line
+set laststatus=2
+
+
+" - Editing - 
+
+" The tab key inserts four spaces
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+" Convert tabs to spaces
+set expandtab
+
+" Auto-indentation on
+set autoindent
+
+" Allow backspacing through anything
+set backspace=indent,eol,start
+
+
+" - Key Mappings -
+
+" Set map leader key
+let mapleader = ","
+
+" Quick save
+nnoremap <leader>w :w!<CR>
+command! W execute 'w !sudo tee % /dev/null' <bar> edit!
+
+" Quick exit
+nnoremap <leader>q :q<CR>
+nnoremap <leader>Q :q!<CR>
+
+" Allow easy navigation to parent directory of current buffer
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/':'%%'
+
+" Remap escape key
+inoremap kj <Esc>
+vnoremap kj <Esc>
+
+" Quickly remove search highlighting
+nnoremap <CR> :noh<CR><CR>
+
+" Allow easy navigation across files
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
+
+
+" - Searching - 
+
+" On search, ignore case until an uppercase character is entered
+set smartcase
+set ignorecase
+
+" On search, highlight matches
+set hlsearch
+
+" On search, do partial matching
+set incsearch
+
+
+" - Navigation -
+
+" Automatically hide buffers when abandoned
+set hidden

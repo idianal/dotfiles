@@ -1,0 +1,6 @@
+# .bash_profile - Runs when a login shell is invoked
+
+# Include .bashrc if it exists
+if [[ -f "$HOME/.bashrc" ]]; then
+    . "$HOME/.bashrc"
+fi

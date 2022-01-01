@@ -1,0 +1,10 @@
+# Settings for macOS
+
+# Explicitly set the dock (icon) size:
+defaults write com.apple.dock tilesize -int 50 && killall Dock
+
+# If using Vim keybindings on VS Code, enable key repeat:
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
+# Disable marks in the Terminal app:
+defaults write com.apple.Terminal AutoMarkPromptLines -bool false

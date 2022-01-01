@@ -1,0 +1,7 @@
+[user]
+    name = Al Idian
+    email = al.idian@acm.org
+[pull]
+    rebase = false
+[commit]
+    gpgsign = true

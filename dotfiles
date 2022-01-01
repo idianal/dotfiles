@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+
+# dotfiles: Install or update dotfiles
+
+PROGRAM_NAME="$(basename "$0")"
+
+# Displays help text
+print_help () {
+    echo "$PROGRAM_NAME - Usage:"
+    echo "    $PROGRAM_NAME --help                            Display this help message."
+    echo "    $PROGRAM_NAME --tag <tag> --file <file>         Install dotfiles under <tag> in <file>."
+}
+
+if [[ $# -eq 0 ]]; then
+    print_help
+    exit
+fi
+
+# Parse given arguments
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -f | --file)    file="$2"
+                        ;;
+        -t | --tag)     tag="$2"
+                        ;;
+        -h | --help)    print_help
+                        exit 0
+                        ;;
+    esac
+    shift
+done
+
+# Check given file exists
+if [[ ! -f "$file" ]]; then
+    tput setaf 1; # 1 - red
+    echo "$PROGRAM_NAME: File not found: '$file'." >&2
+    tput sgr0 # reset
+    exit 1
+fi
+
+echo "Parsing '$file' for entries under '$tag'."
+
+while read -r line || [[ -n "$line" ]]; do
+
+    # For each line in the given file:
+    # 1. Squeeze multiple space into one.
+    # 2. Cut into several fields using space as the delimeter.
+    # 3. If the tag matches the given tag, create the symbolic link.
+
+    currTag=$(echo "$line" | tr -s " " | cut -d " " -f 1)
+
+    if [[ "$currTag" == "$tag" ]]; then
+        target=$(echo "$line" | tr -s " " | cut -d " " -f 2)
+        link=$(echo "$line" | tr -s " " | cut -d " " -f 3)
+
+        # Check target exists
+        if [[ ! -f "$target" ]]; then
+            tput setaf 1; # 1 - red
+            echo "$PROGRAM_NAME: Target not found: '$target'." >&2
+            tput sgr0 # reset
+            exit 2
+        fi
+
+        echo "Creating symbolic link '$link' to '$target'."
+
+        # Alert user that existing file will be overwritten
+        if [[ -e "$link" ]]; then
+            tput setaf 3 # 3 - yellow
+            echo "File '$link' already exists. Overwriting..."
+            tput sgr0 # reset
+        fi
+
+        # Create symbolic link directory if it does not exist
+        if [[ ! -d "$(dirname "$link")" ]]; then
+           mkdir -p "$(dirname "$link")" 
+        fi
+
+        # Forcibly create the symbolic link
+        ln -sf "$target" "$link"
+    fi
+done < "$file"
+
+echo "All done."
