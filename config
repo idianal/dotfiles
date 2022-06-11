@@ -13,3 +13,10 @@ linux       /home/idianal/dotfiles/bash/bash_aliases            /home/idianal/.b
 linux       /home/idianal/dotfiles/bash/bash_profile            /home/idianal/.bash_profile
 linux       /home/idianal/dotfiles/git/gitconfig                /home/idianal/.gitconfig
 linux       /home/idianal/dotfiles/vim/vimrc                    /home/idianal/.vimrc 
+
+## Windows ##
+windows     C:\\Users\\idianal\\dotfiles\\bash\\bashrc          C:\\Users\\idianal\\.bashrc
+windows     C:\\Users\\idianal\\dotfiles\\bash\\bash_aliases    C:\\Users\\idianal\\.bash_aliases
+windows     C:\\Users\\idianal\\dotfiles\\bash\\bash_profile    C:\\Users\\idianal\\.bash_profile
+windows     C:\\Users\\idianal\\dotfiles\\git\\gitconfig        C:\\Users\\idianal\\.gitconfig
+windows     C:\\Users\\idianal\\dotfiles\\vim\\vimrc            C:\\Users\\idianal\\.vimrc
