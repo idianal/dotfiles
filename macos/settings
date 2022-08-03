@@ -13,3 +13,6 @@ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 # Disable marks in the Terminal app
 defaults write com.apple.Terminal AutoMarkPromptLines -bool false
+
+# Remove last login message in the Terminal app
+touch .hushlogin
