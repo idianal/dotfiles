@@ -21,7 +21,7 @@ filetype plugin on
 
 " Apply syntax highlighting
 syntax on
-colorscheme peachpuff
+colorscheme default
 
 " Show line numbers
 set number
