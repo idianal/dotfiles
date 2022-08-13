@@ -1,18 +1,29 @@
 # Settings for macOS
 
-# Explicitly set the dock (icon) size
-defaults write com.apple.dock tilesize -int 50 && killall Dock
+# - Dock -
+
+# Set icon size
+defaults write com.apple.dock tilesize -int 50
 
 # Hide dock
-defaults write com.apple.dock autohide -bool true && killall Dock
-defaults write com.apple.dock autohide-delay -float 1000 && killall Dock
-defaults write com.apple.dock no-bouncing -bool TRUE && killall Dock
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide-delay -float 1000
+defaults write com.apple.dock no-bouncing -bool TRUE
 
-# If using Vim keybindings on VS Code, enable key repeat
+# Reset dock
+killall Dock
+
+
+# - Visual Studio Code -
+
+# If using Vim keybindings, enable key repeat
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
-# Disable marks in the Terminal app
+
+# - Terminal -
+
+# Disable marks
 defaults write com.apple.Terminal AutoMarkPromptLines -bool false
 
-# Remove last login message in the Terminal app
+# Remove last login message
 touch .hushlogin
