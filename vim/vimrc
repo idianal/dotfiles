@@ -34,7 +34,7 @@ set linebreak
 set laststatus=2
 
 
-" - Editing - 
+" - Editing -
 
 " The tab key inserts four spaces
 set tabstop=4
@@ -49,6 +49,10 @@ set autoindent
 
 " Allow backspacing through anything
 set backspace=indent,eol,start
+
+" Render certain whitespace characters
+set list
+set listchars=tab:→\ ,trail:·
 
 
 " - Key Mappings -
@@ -81,7 +85,7 @@ nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 
 
-" - Searching - 
+" - Searching -
 
 " On search, ignore case until an uppercase character is entered
 set smartcase
