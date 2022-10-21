@@ -43,6 +43,7 @@
         [
             {
                 "bellStyle": "none",
+                "closeOnExit": "always",
                 "colorScheme": "One Half Dark",
                 "font":
                 {
@@ -57,6 +58,7 @@
             },
             {
                 "bellStyle": "none",
+                "closeOnExit": "always",
                 "colorScheme": "One Half Dark",
                 "commandline": "C:\\Program Files\\Git\\bin\\bash.exe -il",
                 "font":
