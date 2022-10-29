@@ -26,4 +26,4 @@ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 defaults write com.apple.Terminal AutoMarkPromptLines -bool false
 
 # Remove last login message
-touch .hushlogin
+touch "$HOME/.hushlogin"
