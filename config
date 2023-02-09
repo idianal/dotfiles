@@ -1,11 +1,11 @@
 ## Configuration file for dotfiles.sh ##
 
 ## macOS ##
-macos       /Users/idianal/dotfiles/bash/bashrc                 /Users/idianal/.bashrc
-macos       /Users/idianal/dotfiles/bash/bash_aliases           /Users/idianal/.bash_aliases
-macos       /Users/idianal/dotfiles/bash/bash_profile           /Users/idianal/.bash_profile
-macos       /Users/idianal/dotfiles/git/gitconfig               /Users/idianal/.gitconfig
-macos       /Users/idianal/dotfiles/vim/vimrc                   /Users/idianal/.vimrc
+macos       /Users/idianal/Developer/dotfiles/bash/bashrc                 /Users/idianal/.bashrc
+macos       /Users/idianal/Developer/dotfiles/bash/bash_aliases           /Users/idianal/.bash_aliases
+macos       /Users/idianal/Developer/dotfiles/bash/bash_profile           /Users/idianal/.bash_profile
+macos       /Users/idianal/Developer/dotfiles/git/gitconfig               /Users/idianal/.gitconfig
+macos       /Users/idianal/Developer/dotfiles/vim/vimrc                   /Users/idianal/.vimrc
 
 ## Linux ##
 linux       /home/idianal/dotfiles/bash/bashrc                  /home/idianal/.bashrc
