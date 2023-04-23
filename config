@@ -1,22 +1,22 @@
 ## Configuration file for dotfiles.sh ##
 
 ## macOS ##
-macos       /Users/idianal/Developer/dotfiles/bash/bashrc                 /Users/idianal/.bashrc
-macos       /Users/idianal/Developer/dotfiles/bash/bash_aliases           /Users/idianal/.bash_aliases
-macos       /Users/idianal/Developer/dotfiles/bash/bash_profile           /Users/idianal/.bash_profile
-macos       /Users/idianal/Developer/dotfiles/git/gitconfig               /Users/idianal/.gitconfig
-macos       /Users/idianal/Developer/dotfiles/vim/vimrc                   /Users/idianal/.vimrc
+macos /Users/idianal/Developer/dotfiles/bash/bashrc /Users/idianal/.bashrc
+macos /Users/idianal/Developer/dotfiles/bash/bash_aliases /Users/idianal/.bash_aliases
+macos /Users/idianal/Developer/dotfiles/bash/bash_profile /Users/idianal/.bash_profile
+macos /Users/idianal/Developer/dotfiles/git/gitconfig /Users/idianal/.gitconfig
+macos /Users/idianal/Developer/dotfiles/vim/vimrc /Users/idianal/.vimrc
 
 ## Linux ##
-linux       /home/idianal/dotfiles/bash/bashrc                  /home/idianal/.bashrc
-linux       /home/idianal/dotfiles/bash/bash_aliases            /home/idianal/.bash_aliases
-linux       /home/idianal/dotfiles/bash/bash_profile            /home/idianal/.bash_profile
-linux       /home/idianal/dotfiles/git/gitconfig                /home/idianal/.gitconfig
-linux       /home/idianal/dotfiles/vim/vimrc                    /home/idianal/.vimrc 
+linux /home/idianal/dotfiles/bash/bashrc /home/idianal/.bashrc
+linux /home/idianal/dotfiles/bash/bash_aliases /home/idianal/.bash_aliases
+linux /home/idianal/dotfiles/bash/bash_profile /home/idianal/.bash_profile
+linux /home/idianal/dotfiles/git/gitconfig /home/idianal/.gitconfig
+linux /home/idianal/dotfiles/vim/vimrc /home/idianal/.vimrc 
 
 ## Windows ##
-windows     C:\\Users\\idianal\\dotfiles\\bash\\bashrc          C:\\Users\\idianal\\.bashrc
-windows     C:\\Users\\idianal\\dotfiles\\bash\\bash_aliases    C:\\Users\\idianal\\.bash_aliases
-windows     C:\\Users\\idianal\\dotfiles\\bash\\bash_profile    C:\\Users\\idianal\\.bash_profile
-windows     C:\\Users\\idianal\\dotfiles\\git\\gitconfig        C:\\Users\\idianal\\.gitconfig
-windows     C:\\Users\\idianal\\dotfiles\\vim\\vimrc            C:\\Users\\idianal\\.vimrc
+windows C:\\Users\\idianal\\dotfiles\\bash\\bashrc C:\\Users\\idianal\\.bashrc
+windows C:\\Users\\idianal\\dotfiles\\bash\\bash_aliases C:\\Users\\idianal\\.bash_aliases
+windows C:\\Users\\idianal\\dotfiles\\bash\\bash_profile C:\\Users\\idianal\\.bash_profile
+windows C:\\Users\\idianal\\dotfiles\\git\\gitconfig C:\\Users\\idianal\\.gitconfig
+windows C:\\Users\\idianal\\dotfiles\\vim\\vimrc C:\\Users\\idianal\\.vimrc
