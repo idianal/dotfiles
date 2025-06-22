@@ -33,6 +33,9 @@ set linebreak
 " Always show the status line
 set laststatus=2
 
+" Show line length guide
+set colorcolumn=80
+
 
 " - Editing -
 
