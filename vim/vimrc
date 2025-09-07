@@ -34,7 +34,7 @@ set linebreak
 set laststatus=2
 
 " Show line length guide
-set colorcolumn=80
+set colorcolumn=80,100
 
 
 " - Editing -
