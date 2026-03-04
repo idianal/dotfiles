@@ -1,0 +1,107 @@
+{
+    // - General -
+
+    "chat.disableAIFeatures": false,
+
+    "diffEditor.ignoreTrimWhitespace": false,
+
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.inlineSuggest.enabled": false,
+    "editor.largeFileOptimizations": true,
+    "editor.lineNumbers": "relative",
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "all",
+    "editor.rulers": [80, 100],
+    "editor.stickyScroll.enabled": false,
+    "editor.wordWrap": "on",
+
+    "explorer.confirmDelete": false,
+
+    "terminal.integrated.initialHint": false,
+    "terminal.integrated.suggest.enabled": false,
+
+    "workbench.colorTheme": "Default Light Modern",
+    "workbench.editor.decorations.badges": false,
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.editor.languageDetection": false,
+    "workbench.localHistory.enabled": false,
+    "workbench.iconTheme": "vs-minimal",
+    "workbench.preferredDarkColorTheme": "Default Dark Modern",
+    "workbench.preferredLightColorTheme": "Default Light Modern",
+    "workbench.startupEditor": "newUntitledFile",
+
+    "window.newWindowProfile": "Default",
+
+    // - File Types -
+
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+
+    "[plaintext]": {
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        }
+    },
+
+    // - Extensions -
+
+    "extensions.ignoreRecommendations": true,
+
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    },
+
+    "xml.server.vmargs": "-Xmx256M",
+
+    "vim.highlightedyank.enable": true,
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.useCtrlKeys": true,
+    "vim.useSystemClipboard": true,
+
+    "vim.leader": ",",
+
+    "vim.handleKeys": {
+        "<C-b>": false,
+        "<C-f>": false,
+        "<C-i>": false,
+        "<C-j>": false,
+        "<C-o>": false,
+        "<C-p>": false
+    },
+
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": ["k", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<CR>"],
+            "after": [":", "n", "o", "h", "<CR>"]
+        },
+        {
+            "before": ["<leader>", "w"],
+            "after": [":", "w", "!", "<CR>"]
+        },
+        {
+            "before": ["<leader>", "q"],
+            "after": [":", "q", "<CR>"]
+        },
+        {
+            "before": ["<leader>", "Q"],
+            "after": [":", "q", "!", "<CR>"]
+        }
+    ],
+
+    // - Settings Sync -
+
+    "settingsSync.ignoredSettings": [
+        "chat.disableAIFeatures"
+    ]
+}
