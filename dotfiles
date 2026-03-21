@@ -13,15 +13,17 @@ print_help () {
 
 if [[ $# -eq 0 ]]; then
     print_help
-    exit
+    exit 1
 fi
 
 # Parse given arguments
 while [[ $# -gt 0 ]]; do
     case $1 in
         -f | --file)    file="$2"
+                        shift
                         ;;
         -t | --tag)     tag="$2"
+                        shift
                         ;;
         -h | --help)    print_help
                         exit 0
@@ -30,11 +32,20 @@ while [[ $# -gt 0 ]]; do
     shift
 done
 
+# Set colors
+if tput colors &>/dev/null; then
+    RED=$(tput setaf 1)
+    YELLOW=$(tput setaf 3)
+    RESET=$(tput sgr0)
+else
+    RED=''
+    YELLOW=''
+    RESET=''
+fi
+
 # Check given file exists
 if [[ ! -f "$file" ]]; then
-    tput setaf 1; # 1 - red
-    echo "$PROGRAM_NAME: File not found: '$file'." >&2
-    tput sgr0 # reset
+    echo "${RED}$PROGRAM_NAME: File not found: '$file'.${RESET}" >&2
     exit 1
 fi
 
@@ -43,21 +54,16 @@ echo "Parsing '$file' for entries under '$tag'."
 while read -r line || [[ -n "$line" ]]; do
 
     # For each line in the given file:
-    # 1. Squeeze multiple space into one.
-    # 2. Cut into several fields using space as the delimeter.
-    # 3. If the tag matches the given tag, create the symbolic link.
+    # 1. Squeeze multiple spaces into one, then split into fields.
+    # 2. If the tag matches the given tag, create the symbolic link.
 
-    currTag=$(echo "$line" | tr -s " " | cut -d " " -f 1)
+    IFS=' ' read -r curr_tag target link <<< "$(tr -s ' ' <<< "$line")"
 
-    if [[ "$currTag" == "$tag" ]]; then
-        target=$(echo "$line" | tr -s " " | cut -d " " -f 2)
-        link=$(echo "$line" | tr -s " " | cut -d " " -f 3)
+    if [[ "$curr_tag" == "$tag" ]]; then
 
         # Check target exists
         if [[ ! -f "$target" ]]; then
-            tput setaf 1; # 1 - red
-            echo "$PROGRAM_NAME: Target not found: '$target'." >&2
-            tput sgr0 # reset
+            echo "${RED}$PROGRAM_NAME: Target not found: '$target'.${RESET}" >&2
             exit 2
         fi
 
@@ -65,9 +71,7 @@ while read -r line || [[ -n "$line" ]]; do
 
         # Alert user that existing file will be overwritten
         if [[ -e "$link" ]]; then
-            tput setaf 3 # 3 - yellow
-            echo "File '$link' already exists. Overwriting..."
-            tput sgr0 # reset
+            echo "${YELLOW}File '$link' already exists. Overwriting...${RESET}"
         fi
 
         # Create symbolic link directory if it does not exist
@@ -76,7 +80,7 @@ while read -r line || [[ -n "$line" ]]; do
         fi
 
         # Forcibly create the symbolic link
-        ln -sf "$target" "$link"
+        ln -sfn "$target" "$link"
     fi
 done < "$file"
 
