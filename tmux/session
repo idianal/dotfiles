@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# session - Start tmux with windows and panes configured
+
+if ! tmux has-session -t session; then
+
+    # Start a new session running Vim
+    tmux new-session -s session -n main -d
+    tmux send-keys -t session 'vim' C-m
+
+    # Add a bottom pane
+    tmux split-window -v -t session
+    tmux select-layout -t session main-horizontal
+
+    # Add a window
+    tmux new-window -n terminal -t session
+
+    # Set current window and attach
+    tmux select-window -t session:main
+    tmux select-pane -t session:main.1
+
+fi
+
+tmux attach -t session
