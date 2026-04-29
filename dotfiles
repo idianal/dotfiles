@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# dotfiles: Install or update dotfiles
+# dotfiles - Install or update dotfiles
 
 PROGRAM_NAME="$(basename "$0")"
 
