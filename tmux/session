@@ -4,9 +4,8 @@
 
 if ! tmux has-session -t session; then
 
-    # Start a new session running Vim
+    # Start a new session
     tmux new-session -s session -n main -d
-    tmux send-keys -t session 'vim' C-m
 
     # Add a bottom pane
     tmux split-window -v -t session
